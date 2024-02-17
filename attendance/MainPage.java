@@ -3,10 +3,10 @@ import java.awt.*;
 import java.awt.event.*;
 
 
-public class ImitHomePage extends JFrame implements ActionListener {
+public class MainPage extends JFrame implements ActionListener {
 
     JButton attendance;
-    ImitHomePage(){
+    MainPage(){
         setLayout(null);
         getContentPane().setBackground(Color.WHITE);
 
@@ -237,6 +237,6 @@ public class ImitHomePage extends JFrame implements ActionListener {
         new Login();
     }
     public static void main(String[] args){
-        new ImitHomePage();
+        new MainPage();
     }
 }
