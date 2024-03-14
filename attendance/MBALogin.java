@@ -1,8 +1,9 @@
 
-package imit.attendance;
+package IMIT;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.sql.*;
 import javax.swing.*;
 import javax.swing.border.*;
 
@@ -11,7 +12,8 @@ public class MBALogin extends JFrame implements ActionListener{
     
     JTextField tfusername, tfpassword;
     JButton login, back;
-    
+
+
     MBALogin(){
         
        setSize(900, 400);
@@ -90,14 +92,40 @@ public class MBALogin extends JFrame implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent ae) {
-        
-        if (ae.getSource() == login){
-             setVisible(false);
-             new LoadingPage("");
-        } else{
+
+        if(ae.getSource() == login) {
+            try {
+
+                String username = tfusername.getText();
+                String password = tfpassword.getText();
+
+
+                // used query for getting username and password
+                String query = "select department from staff where username = '" + username + "' AND password = '" + password + "'";
+                Conn c = new Conn();
+                ResultSet result = c.s.executeQuery(query);
+                if (result.next() ) {
+                    String department = result.getString("department");
+                    String staffname = result.getString("staffname");
+                    if (department.equals("MBA")) {
+                        setVisible(false);
+                        new LoadingPage(staffname);
+                    }
+                    else {
+                        JOptionPane.showMessageDialog(null, "galu hauchhi kire");
+                    }
+
+                } else {
+                    JOptionPane.showMessageDialog(null, "Incorrect username or password");
+                    //text.setVisible(true); // show the error message
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        else{
             setVisible(false);
             new SelectBranch();
-            // new MainPage();
         }
         
     }
