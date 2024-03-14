@@ -1,14 +1,17 @@
 
-package imit.attendance;
+package IMIT;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.sql.*;
 import javax.swing.*;
 import javax.swing.border.*;
 
 
+
 public class MCALogin extends JFrame implements ActionListener{
-    
+
+    JButton forgot;
     JTextField tfusername, tfpassword;
     JButton login, back;
     
@@ -35,6 +38,7 @@ public class MCALogin extends JFrame implements ActionListener{
        JPanel jpanel2 = new JPanel();
        jpanel2.setLayout(null);
        jpanel2.setBounds(400, 30, 450, 300);
+       jpanel2.setBackground(new Color(235,235,235));
        add(jpanel2);
        
        //Creating Username
@@ -78,7 +82,17 @@ public class MCALogin extends JFrame implements ActionListener{
        back.setBorder(new LineBorder(new Color(29,75,100)));
        back.addActionListener(this);
        jpanel2.add(back);
-    
+
+        forgot = new JButton("Forgot password?");
+        forgot.setBounds(60, 250, 130, 30);
+        forgot.setForeground(new Color(29,75,100));
+        forgot.setBackground(new Color(235,235,235));
+        forgot.setBorder(new LineBorder(new Color(29,75,100)));
+        forgot.setBorder(BorderFactory.createEmptyBorder());
+        forgot.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        forgot.addActionListener(this);
+        jpanel2.add(forgot);
+
         setVisible(true);
     }
     
@@ -90,16 +104,51 @@ public class MCALogin extends JFrame implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent ae) {
-        
-        if (ae.getSource() == login){
-             setVisible(false);
-             new LoadingPage("");
-        } else{
-            setVisible(false);
-            new SelectBranch();
-            // new MainPage();
+
+
+            if(ae.getSource() == login) {
+                try {
+
+                    String username = tfusername.getText();
+                    String password = tfpassword.getText();
+
+                    // used query for getting username and password
+                    String query = "select * from staff where username = '" + username + "' AND password = '" + password + "'";
+                    Conn c = new Conn();
+                    ResultSet result = c.s.executeQuery(query);
+                    if (result.next()) {
+                        String department = result.getString("department");
+                        String staffname = result.getString("staffname");
+                        if (department.equals("MCA")) {
+                            setVisible(false);
+                            new LoadingPage(staffname);
+                        }
+                        else {
+                            JOptionPane.showMessageDialog(null, "galu hauchhi kire");
+                        }
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Incorrect username or password");
+                        //text.setVisible(true); // show the error message
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+            else if(ae.getSource() == forgot){
+                setVisible(false);
+                new MailVerification();
+                //new SelectBranch();
+               // new MainPage();
+                }
+            else if(ae.getSource() == back){
+                setVisible(false);
+            }
+               else{
+                    setVisible(false);
+                    new SelectBranch();
+            }
         }
-        
     }
-    
-}
+
+
+

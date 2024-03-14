@@ -1,5 +1,5 @@
 
-package imit.attendance;
+package IMIT;
 
 import java.awt.*;
 import java.awt.event.*;

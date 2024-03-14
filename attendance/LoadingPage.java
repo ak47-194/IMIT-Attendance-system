@@ -1,4 +1,4 @@
-package imit.attendance;
+package IMIT;
 
 import javax.swing.*;
 import java.awt.*;
@@ -7,11 +7,11 @@ public class LoadingPage extends JFrame implements Runnable{
     
     Thread thread;
     JProgressBar pbar;
-    String username;
+    String staffname;
     
-    LoadingPage( String username ){
+    LoadingPage( String staffname ){
         //used for store local variable into global variable
-        this.username = username;
+        this.staffname = staffname;
         
         thread = new Thread(this);
         setBounds(500, 200, 650, 400);
@@ -36,7 +36,7 @@ public class LoadingPage extends JFrame implements Runnable{
         loadingmessgae.setFont(new Font("Railway", Font.BOLD, 14));
         add(loadingmessgae);
         
-        JLabel welcomemessage = new JLabel ("Welcome " + username);
+        JLabel welcomemessage = new JLabel ("Welcome " + staffname);
         welcomemessage.setBounds(20, 310, 400, 40);
         welcomemessage.setForeground(new Color(0, 255, 0));
         welcomemessage.setFont(new Font("Railway", Font.BOLD, 16));

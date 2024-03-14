@@ -1,6 +1,10 @@
+package IMIT;
+
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import javax.swing.BorderFactory.*;
 
 
 public class MainPage extends JFrame implements ActionListener {
@@ -8,11 +12,12 @@ public class MainPage extends JFrame implements ActionListener {
     JButton attendance;
     MainPage(){
         setLayout(null);
-        getContentPane().setBackground(Color.WHITE);
+        getContentPane().setBackground(new Color(29, 59, 85));
+        setExtendedState(JFrame.MAXIMIZED_BOTH);
 
         JPanel header = new JPanel();
-        header.setBounds(0,0, 1550, 150);
-        header.setBackground(Color.BLUE);
+        header.setBounds(0,0, 1600, 150);
+        header.setBackground(new Color(29, 59, 85));
         header.setLayout(null);
         add(header);
 
@@ -28,7 +33,7 @@ public class MainPage extends JFrame implements ActionListener {
         lblplace.setFont(new Font("Tahoma", Font.PLAIN, 18));
         header.add(lblplace);
 
-        ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("icons/img1.gif"));
+        ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("imgs/IMITGIF.gif"));
         Image i24 = i1.getImage().getScaledInstance(600, 20, Image.SCALE_DEFAULT);
         ImageIcon i25 = new ImageIcon(i24);
         JLabel image = new JLabel(i25);
@@ -47,12 +52,12 @@ public class MainPage extends JFrame implements ActionListener {
         lbltext2.setForeground(Color.WHITE);
         header.add(lbltext2);
 
-        ImageIcon i2 = new ImageIcon(ClassLoader.getSystemResource("icons/imitlogo3.png"));
+        ImageIcon i2 = new ImageIcon(ClassLoader.getSystemResource("imgs/Imitlogo.png"));
         JLabel image1 = new JLabel(i2);
         image1.setBounds(150, 0, 200, 150);
         header.add(image1);
 
-        ImageIcon i3 = new ImageIcon(ClassLoader.getSystemResource("icons/IMITIMAGES/sideimage1.jpeg"));
+        ImageIcon i3 = new ImageIcon(ClassLoader.getSystemResource("imgs/Slideimg1.jpg"));
         Image i4 =  i3.getImage().getScaledInstance(1550, 500, Image.SCALE_DEFAULT);
         ImageIcon i5 = new ImageIcon(i4);
         JLabel image2 = new JLabel(i5);
@@ -60,7 +65,7 @@ public class MainPage extends JFrame implements ActionListener {
         add(image2);
         image2.setVisible(false);
 
-        ImageIcon i6 = new ImageIcon(ClassLoader.getSystemResource("icons/IMITIMAGES/sideimage2.jpg"));
+        ImageIcon i6 = new ImageIcon(ClassLoader.getSystemResource("imgs/Slideimg2.jpg"));
         Image i7 =  i6.getImage().getScaledInstance(1550, 300, Image.SCALE_DEFAULT);
         ImageIcon i8 = new ImageIcon(i7);
         JLabel image3 = new JLabel(i8);
@@ -68,7 +73,7 @@ public class MainPage extends JFrame implements ActionListener {
         add(image3);
         image3.setVisible(false);
 
-        ImageIcon i9 = new ImageIcon(ClassLoader.getSystemResource("icons/IMITIMAGES/sideimage3.jpeg"));
+        ImageIcon i9 = new ImageIcon(ClassLoader.getSystemResource("imgs/Slideimg3.jpg"));
         Image i10 =  i9.getImage().getScaledInstance(1550, 300, Image.SCALE_DEFAULT);
         ImageIcon i11 = new ImageIcon(i10);
         JLabel image4 = new JLabel(i11);
@@ -76,7 +81,7 @@ public class MainPage extends JFrame implements ActionListener {
         add(image4);
         image4.setVisible(false);
 
-        ImageIcon i12 = new ImageIcon(ClassLoader.getSystemResource("icons/IMITIMAGES/sideimage4.jpg"));
+        ImageIcon i12 = new ImageIcon(ClassLoader.getSystemResource("imgs/Slideimg4.jpg"));
         Image i13 =  i12.getImage().getScaledInstance(1550, 300, Image.SCALE_DEFAULT);
         ImageIcon i14 = new ImageIcon(i13);
         JLabel image5 = new JLabel(i14);
@@ -84,7 +89,7 @@ public class MainPage extends JFrame implements ActionListener {
         add(image5);
         image5.setVisible(false);
 
-        ImageIcon i15 = new ImageIcon(ClassLoader.getSystemResource("icons/IMITIMAGES/sideimage5.png"));
+        ImageIcon i15 = new ImageIcon(ClassLoader.getSystemResource("imgs/Slideimg5.jpg"));
         Image i16 =  i15.getImage().getScaledInstance(1550, 300, Image.SCALE_DEFAULT);
         ImageIcon i17 = new ImageIcon(i16);
         JLabel image6 = new JLabel(i17);
@@ -92,7 +97,7 @@ public class MainPage extends JFrame implements ActionListener {
         add(image6);
         image6.setVisible(false);
 
-        ImageIcon i18 = new ImageIcon(ClassLoader.getSystemResource("icons/IMITIMAGES/sideimage6.jpeg"));
+        ImageIcon i18 = new ImageIcon(ClassLoader.getSystemResource("imgs/Slideimg6.jpg"));
         Image i19 =  i18.getImage().getScaledInstance(1550, 300, Image.SCALE_DEFAULT);
         ImageIcon i20 = new ImageIcon(i19);
         JLabel image7 = new JLabel(i20);
@@ -100,7 +105,7 @@ public class MainPage extends JFrame implements ActionListener {
         add(image7);
         image7.setVisible(false);
 
-        ImageIcon i21 = new ImageIcon(ClassLoader.getSystemResource("icons/IMITIMAGES/sideimage7.png"));
+        ImageIcon i21 = new ImageIcon(ClassLoader.getSystemResource("imgs/Slideimg7.jpg"));
         Image i22 =  i21.getImage().getScaledInstance(1550, 300, Image.SCALE_DEFAULT);
         ImageIcon i23 = new ImageIcon(i22);
         JLabel image8 = new JLabel(i23);
@@ -124,55 +129,69 @@ public class MainPage extends JFrame implements ActionListener {
                 "- To inspire the students and create a climate of learning.\n" +
                 "- To empower the students with Knowledge and Professional skill to face the challenges of changing environment.\n" +
                 "- To maintain the high standards of professional education with a value orientation.\n" +
+                "- To provide a broad range of career-oriented programs to meet the needs of society in general and professional education in particular."+
+                "- To inspire the students and create a climate of learning.\n" +
+                "- To empower the students with Knowledge and Professional skill to face the challenges of changing environment.\n" +
+                "- To maintain the high standards of professional education with a value orientation.\n" +
+                "- To provide a broad range of career-oriented programs to meet the needs of society in general and professional education in particular."+
+                "- To inspire the students and create a climate of learning.\n" +
+                "- To empower the students with Knowledge and Professional skill to face the challenges of changing environment.\n" +
+                "- To maintain the high standards of professional education with a value orientation.\n" +
+                "- To provide a broad range of career-oriented programs to meet the needs of society in general and professional education in particular."+
+                "- To inspire the students and create a climate of learning.\n" +
+                "- To empower the students with Knowledge and Professional skill to face the challenges of changing environment.\n" +
+                "- To maintain the high standards of professional education with a value orientation.\n" +
                 "- To provide a broad range of career-oriented programs to meet the needs of society in general and professional education in particular.";
 
         TextArea taAbout = new TextArea(about, 30, 185, Scrollbar.VERTICAL);
         taAbout.setEditable(false);
-        taAbout.setBounds(0, 452, 1550, 220);
-        taAbout.setBackground(Color.WHITE);
-        taAbout.setForeground(Color.red);
+        taAbout.setBounds(0, 452, 1550, 250);
+        taAbout.setBackground(new Color(29, 59, 85));
+        taAbout.setForeground(Color.white);
         add(taAbout);
+        
 
         attendance = new JButton("Attendance");
-        attendance.setBackground(Color.WHITE);
-        attendance.setForeground(Color.BLACK);
+        attendance.setBackground(new Color(29,75,100));
+        attendance.setForeground(new Color(34, 150, 255));
+        attendance.setBounds(20, 710, 180, 30);
         attendance.addActionListener(this);
-        attendance.setBounds(20, 670, 200, 30);
+        attendance.setCursor(new Cursor(Cursor.HAND_CURSOR));
         add(attendance);
 
         JPanel footer  = new JPanel();
-        footer.setBounds(0, 700, 1550, 150);
-        footer.setBackground(Color.BLUE);
+        footer.setBounds(0, 750, 1550, 150);
+        footer.setBackground(new Color(29,59,85));
         footer.setLayout(null);
         add(footer);
 
         JLabel heading = new JLabel("Contact Us ");
-        heading.setBounds(50, 2, 100, 20);
-        heading.setFont(new Font("Tahoma", Font.BOLD, 12));
+        heading.setBounds(50, 22, 150, 20);
+        heading.setFont(new Font("Tahoma", Font.BOLD, 18));
         heading.setForeground(Color.WHITE);
         footer.add(heading);
 
         JLabel clgName = new JLabel("Institute Of Management And Information Technology");
-        clgName.setBounds(50, 22, 600, 30);
-        clgName.setFont(new Font("Tahoma", Font.PLAIN, 12));
+        clgName.setBounds(50, 52, 600, 30);
+        clgName.setFont(new Font("Tahoma", Font.BOLD, 10));
         clgName.setForeground(Color.WHITE);
         footer.add(clgName);
 
         JLabel clgAdd = new JLabel("Gourav Palace, Matha sahi, Post-Tulsipur, Cuttack - 753008, Odisha,India");
-        clgAdd.setBounds(50, 42, 600, 30);
-        clgAdd.setFont(new Font("Tahoma", Font.PLAIN, 12));
+        clgAdd.setBounds(50, 70, 600, 30);
+        clgAdd.setFont(new Font("Tahoma", Font.BOLD, 10));
         clgAdd.setForeground(Color.WHITE);
         footer.add(clgAdd);
 
-        JLabel phoneNo = new JLabel("Phone No.- +91-671-2506711, Email: imitcuttack@rediffmail.com");
-        phoneNo.setBounds(50, 62, 600, 30);
-        phoneNo.setFont(new Font("Tahoma", Font.PLAIN, 12));
+        JLabel phoneNo = new JLabel("Phone No.- +91-671-2506711,  Email: imitcuttack@rediffmail.com");
+        phoneNo.setBounds(50, 89, 600, 30);
+        phoneNo.setFont(new Font("Tahoma", Font.BOLD, 10));
         phoneNo.setForeground(Color.WHITE);
         footer.add(phoneNo);
 
-        JLabel copyright = new JLabel("Copyright (c) Institute Of Managenent And Information Technology. All rights reserved.");
-        copyright.setBounds(1020, 62, 600, 30);
-        copyright.setFont(new Font("Tahoma", Font.PLAIN, 12));
+        JLabel copyright = new JLabel("Copyright 2024 (c) Institute Of Managenent And Information Technology. All rights reserved.");
+        copyright.setBounds(1020, 89, 600, 30);
+        copyright.setFont(new Font("Tahoma", Font.BOLD, 10));
         copyright.setForeground(Color.WHITE);
         footer.add(copyright);
 
@@ -232,11 +251,18 @@ public class MainPage extends JFrame implements ActionListener {
 
     }
 
-    public void actionPerformed(ActionEvent ae){
-        setVisible(false);
-        new Login();
-    }
+    
     public static void main(String[] args){
         new MainPage();
     }
+    
+    @Override
+    public void actionPerformed(ActionEvent ae) {
+        if (ae.getSource() == attendance){
+            setVisible(true);
+            new SelectBranch();
+        }
+    }
+    
 }
+
