@@ -3,6 +3,7 @@ package IMIT;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.sql.ResultSet;
 import javax.swing.*;
 import javax.swing.border.*;
 
@@ -81,25 +82,53 @@ public class STAFFLogin extends JFrame implements ActionListener{
     
         setVisible(true);
     }
-    
-    
-    
+
+
+
     public static void main(String[] args){
-    new STAFFLogin();
+        new MBALogin();
     }
 
     @Override
     public void actionPerformed(ActionEvent ae) {
-        
-        if (ae.getSource() == login){
-             setVisible(false);
-             new LoadingPage("");
-        } else{
+
+        if(ae.getSource() == login) {
+            try {
+
+                String username = tfusername.getText();
+                String password = tfpassword.getText();
+
+
+                // used query for getting username and password
+                String query = "select * from staff where username = '" + username + "' AND password = '" + password + "'";
+                Conn c = new Conn();
+                ResultSet result = c.s.executeQuery(query);
+                if (result.next() ) {
+                    String department = result.getString("department");
+                    String staffname = result.getString("staffname");
+                    String Designation = result.getString("Designation");
+                    String email_id = result.getString("email_id");
+                    if (department.equals("MBA") || Designation.equals("HOD")) {
+                        setVisible(false);
+                        new MbaLoadingPage(staffname,Designation,department,email_id);
+                    }
+                    else {
+                        JOptionPane.showMessageDialog(null, "galu hauchhi kire");
+                    }
+
+                } else {
+                    JOptionPane.showMessageDialog(null, "Incorrect username or password");
+                    //text.setVisible(true); // show the error message
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        else{
             setVisible(false);
             new SelectBranch();
-            // new MainPage();
         }
-        
+
     }
-    
+
 }

@@ -12,6 +12,7 @@ public class MBALogin extends JFrame implements ActionListener{
     
     JTextField tfusername, tfpassword;
     JButton login, back;
+    JButton forgot;
 
 
     MBALogin(){
@@ -80,6 +81,16 @@ public class MBALogin extends JFrame implements ActionListener{
        back.setBorder(new LineBorder(new Color(29,75,100)));
        back.addActionListener(this);
        jpanel2.add(back);
+
+        forgot = new JButton("Forgot password?");
+        forgot.setBounds(60, 250, 130, 30);
+        forgot.setForeground(new Color(29,75,100));
+        forgot.setBackground(new Color(235,235,235));
+        forgot.setBorder(new LineBorder(new Color(29,75,100)));
+        forgot.setBorder(BorderFactory.createEmptyBorder());
+        forgot.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        forgot.addActionListener(this);
+        jpanel2.add(forgot);
     
         setVisible(true);
     }
@@ -101,15 +112,17 @@ public class MBALogin extends JFrame implements ActionListener{
 
 
                 // used query for getting username and password
-                String query = "select department from staff where username = '" + username + "' AND password = '" + password + "'";
+                String query = "select * from staff where username = '" + username + "' AND password = '" + password + "'";
                 Conn c = new Conn();
                 ResultSet result = c.s.executeQuery(query);
                 if (result.next() ) {
                     String department = result.getString("department");
                     String staffname = result.getString("staffname");
-                    if (department.equals("MBA")) {
+                    String Designation = result.getString("Designation");
+                    String email_id = result.getString("email_id");
+                    if (department.equals("MBA") || Designation.equals("HOD")) {
                         setVisible(false);
-                        new LoadingPage(staffname);
+                        new MbaLoadingPage(staffname,Designation,department,email_id);
                     }
                     else {
                         JOptionPane.showMessageDialog(null, "galu hauchhi kire");

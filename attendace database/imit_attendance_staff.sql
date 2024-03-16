@@ -30,6 +30,7 @@ CREATE TABLE `staff` (
   `password` varchar(20) DEFAULT NULL,
   `contact_no` varchar(20) DEFAULT NULL,
   `department` varchar(10) DEFAULT NULL,
+  `Designation` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`username`),
   UNIQUE KEY `UserID` (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -41,7 +42,7 @@ CREATE TABLE `staff` (
 
 LOCK TABLES `staff` WRITE;
 /*!40000 ALTER TABLE `staff` DISABLE KEYS */;
-INSERT INTO `staff` VALUES (1,'MCA001','S.K. Jaysingh','randomlyspoken000@gmail.com','sk2024','8421576951','MCA');
+INSERT INTO `staff` VALUES (3,'MBA001','Rajat Kumar Baliarsingh','akdash156@gmail.com','rkb2024','7978280353','MBA','Staff'),(1,'MCA001','Suvendra Kumar Jayasingh','randomlyspoken000@gmail.com','sk2024','8421576951','MBA & MCA','HOD'),(2,'MCA002','Sujata Roy','akdash156@gmail.com','sr2024','7978280353','MCA','Staff');
 /*!40000 ALTER TABLE `staff` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -54,4 +55,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-03-14 20:03:00
+-- Dump completed on 2024-03-16 23:19:50

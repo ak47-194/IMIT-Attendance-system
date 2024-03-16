@@ -119,9 +119,11 @@ public class MCALogin extends JFrame implements ActionListener{
                     if (result.next()) {
                         String department = result.getString("department");
                         String staffname = result.getString("staffname");
-                        if (department.equals("MCA")) {
+                        String Designation = result.getString("Designation");
+                        String email_id = result.getString("email_id");
+                        if (department.equals("MCA") || Designation.equals("HOD")) {
                             setVisible(false);
-                            new LoadingPage(staffname);
+                            new McaLoadingPage(staffname,Designation,department,email_id);
                         }
                         else {
                             JOptionPane.showMessageDialog(null, "galu hauchhi kire");
