@@ -3,15 +3,18 @@ package IMIT;
 import javax.swing.*;
 import java.awt.*;
 
-public class LoadingPage extends JFrame implements Runnable{
-    
+public class MbaLoadingPage extends JFrame implements Runnable{
+
     Thread thread;
     JProgressBar pbar;
-    String staffname;
+    String staffname,Designation,department,email_id;
     
-    LoadingPage( String staffname ){
+    MbaLoadingPage( String staffname,String Designation,String department,String email_id ){
         //used for store local variable into global variable
         this.staffname = staffname;
+        this.Designation = Designation;
+        this.department = department;
+        this.email_id = email_id;
         
         thread = new Thread(this);
         setBounds(500, 200, 650, 400);
@@ -47,7 +50,7 @@ public class LoadingPage extends JFrame implements Runnable{
     }
     
     public static void main (String args[]){
-        new LoadingPage("");
+        new MbaLoadingPage("", "", "", "");
     }
 
     // for running progressbar from 0% to 100%, multithreadung concept is used by using Runnable interface
@@ -62,7 +65,7 @@ public class LoadingPage extends JFrame implements Runnable{
                     pbar.setValue(pbar.getValue() + 1); // increment the value by 1
                 }else {
                     setVisible(false);
-                    new Dashboard();
+                    new MbaDashboard(staffname,Designation,department,email_id);
                 }
                 Thread.sleep(30);
             }
