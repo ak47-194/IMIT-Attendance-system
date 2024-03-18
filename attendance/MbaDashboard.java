@@ -290,7 +290,7 @@ public class MbaDashboard extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent ae) {
         if (ae.getSource() == tracker) {
             setVisible(false);
-            new AttendanceTracker();
+            new MbaAttendanceTracker(staffname,Designation,department,email_id);
         }else if(ae.getSource() == update){
 //            //Updation of the attendance
 //            for(int row : hs){
