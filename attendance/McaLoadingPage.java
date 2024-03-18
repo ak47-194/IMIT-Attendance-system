@@ -65,7 +65,7 @@ public class McaLoadingPage extends JFrame implements Runnable{
                     pbar.setValue(pbar.getValue() + 1); // increment the value by 1
                 }else {
                     setVisible(false);
-                    new McaDashboard();
+                    new McaDashboard(staffname,Designation,department,email_id);
                 }
                 Thread.sleep(30);
             }

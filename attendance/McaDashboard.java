@@ -29,10 +29,15 @@ public class McaDashboard extends JFrame implements ActionListener {
 
     JTable table;
     JScrollPane pane;
+    String staffname,Designation,department,email_id;
 
     HashSet<Integer> hs = new HashSet<>();
 
-    McaDashboard() {
+    McaDashboard(String staffname,String Designation,String department,String email_id) {
+        this.staffname = staffname;
+        this.Designation = Designation;
+        this.department = department;
+        this.email_id = email_id;
 
         setExtendedState(JFrame.MAXIMIZED_BOTH);
         setLayout(null);
@@ -277,14 +282,15 @@ public class McaDashboard extends JFrame implements ActionListener {
     }
 
     public static void main(String[] args) {
-        new McaDashboard();
+
+        new McaDashboard("","","","");
     }
 
     @Override
     public void actionPerformed(ActionEvent ae) {
         if (ae.getSource() == tracker) {
             setVisible(false);
-            new AttendanceTracker();
+            new McaAttendanceTracker("", "", "","");
         }else if(ae.getSource() == update){
 //            //Updation of the attendance
 //            for(int row : hs){
